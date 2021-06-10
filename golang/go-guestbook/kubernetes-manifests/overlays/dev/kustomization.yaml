@@ -3,14 +3,14 @@ kind: Kustomization
 
 resources:
 - ../../base
-- db-cred.configmap.yaml
+- guestbook-frontend.route.yaml
 
 patchesStrategicMerge:
 - guestbook-mongodb.deployment.yaml
 - guestbook-backend.deployment.yaml
 
-namePrefix: dev-
-namespace: xymox-guestbook
+# namePrefix: dev-
+namespace: hacktodos
 commonLabels:
   environment: development
 
@@ -21,6 +21,7 @@ images:
 
 secretGenerator:
 - name: database-secret-config
+  namespace: xymox-guestbook
   literals:
   - dbname=guestbook
   - username=mongo

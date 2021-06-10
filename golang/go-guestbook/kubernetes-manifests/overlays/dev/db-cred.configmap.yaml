@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: db-creds
-data:
-  db_creds.env: |
-    export GUESTBOOK_DB_ADDR=${MONGODB_USER}:${MONGODB_PASSWORD}@dev-go-guestbook-mongodb:27017/${MONGODB_DATABASE}
