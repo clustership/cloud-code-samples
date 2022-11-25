@@ -13,9 +13,10 @@ COPY . ./
 
 # Compile the application to /app/frontend.
 # Skaffold passes in debug-oriented compiler flags
-ARG SKAFFOLD_GO_GCFLAGS
-RUN echo "Go gcflags: ${SKAFFOLD_GO_GCFLAGS}"
-RUN go build -gcflags="${SKAFFOLD_GO_GCFLAGS}" -mod=readonly -v -o /opt/app-root/src/frontend .
+# ARG SKAFFOLD_GO_GCFLAGS
+#RUN echo "Go gcflags: ${SKAFFOLD_GO_GCFLAGS}"
+#RUN go build -gcflags="${SKAFFOLD_GO_GCFLAGS}" -mod=readonly -v -o /opt/app-root/src/frontend .
+RUN go build -mod=readonly -v -o /opt/app-root/src/frontend .
 
 # Now create separate deployment image
 FROM registry.redhat.io/ubi8
